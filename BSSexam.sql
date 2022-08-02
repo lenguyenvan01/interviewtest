@@ -25,7 +25,7 @@ from bssexam b
 where substring(service_focus,1,length(service_focus)-17)::float >=50;
 
 
---Tong so review cua cac agent den tu Ukraine va  co staff >= 50
+--Tong so review cua cac agent den tu Ukraine vaÂ  co staff >= 50
 with location_1 as (
 	select right(location,position(',' in reverse(location))-2) as location_1
 	from bssexam
@@ -62,4 +62,4 @@ from bssexam b
 select sum(left(review_count,position('re' in review_count)-2)::int) 
 from staff_value
 where staff_value >=50
-and right(location,position(',' in reverse(location))-2) = 'Ukraine'
+and right(location,position(',' in reverse(location))-2) = 'Ukraine' -- and location like '%Ukraine'
